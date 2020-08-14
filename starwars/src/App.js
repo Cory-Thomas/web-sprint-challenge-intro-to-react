@@ -17,8 +17,6 @@ const StyledH1 = styled.h1`
   border-radius: 50px;
 `;
 
-const StyledFlex = styled.div``;
-
 const StyledDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -49,13 +47,11 @@ const App = () => {
   return (
     <StyledDiv1>
       <StyledH1>Pokemon Starters and Their Evolutions</StyledH1>
-      <StyledFlex>
-        <StyledDiv className="App">
-          {character.map((char) => (
-            <Character key={char["name"]} url={char["url"]} />
-          ))}
-        </StyledDiv>
-      </StyledFlex>
+      <StyledDiv className="App">
+        {character.map((char) => (
+          <Character key={char["name"]} url={char["url"]} />
+        ))}
+      </StyledDiv>
     </StyledDiv1>
   );
 };
