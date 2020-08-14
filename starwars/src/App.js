@@ -10,14 +10,16 @@ const StyledDiv1 = styled.div`
 `;
 
 const StyledH1 = styled.h1`
-  margin: 0 auto;
+  margin: 5% auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2%;
+  text-align: center;
+  border-radius: 50px;
 `;
 
-const StyledDiv = styled.div`
-  width: 30%;
-  display: flex;
-  flex-wrap: wrap;
-`;
+const StyledFlex = styled.div``;
+
+const StyledDiv = styled.div``;
 
 const App = () => {
   const [character, setCharacter] = useState([]);
@@ -43,11 +45,13 @@ const App = () => {
   return (
     <StyledDiv1>
       <StyledH1>Pokemon Starters and Their Evolutions</StyledH1>
-      <StyledDiv className="App">
-        {character.map((char) => (
-          <Character key={char["name"]} url={char["url"]} />
-        ))}
-      </StyledDiv>
+      <StyledFlex>
+        <StyledDiv className="App">
+          {character.map((char) => (
+            <Character key={char["name"]} url={char["url"]} />
+          ))}
+        </StyledDiv>
+      </StyledFlex>
     </StyledDiv1>
   );
 };

@@ -3,10 +3,13 @@ import styled from "styled-components";
 import axios from "axios";
 
 const StyledSection = styled.section`
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
   margin: 2%;
-  width: 30%;
+  width: 34%;
+  padding: 5%;
 `;
+
+const StyledDiv = styled.div``;
 
 export default function Character({ url }) {
   const [data, setData] = useState({});
@@ -39,11 +42,11 @@ export default function Character({ url }) {
   return (
     <StyledSection>
       <h2>{data["name"]}</h2>
-      <div>
+      <StyledDiv>
         {data["sprites"] && (
           <img src={data["sprites"]["front_default"]} alt={`${data["name"]}`} />
         )}
-      </div>
+      </StyledDiv>
     </StyledSection>
   );
 }
