@@ -5,8 +5,13 @@ import axios from "axios";
 const StyledSection = styled.section`
   background-color: rgba(255, 255, 255, 0.7);
   margin: 2%;
-  width: 34%;
+  width: 15%;
   padding: 5%;
+  border-radius: 25px;
+`;
+
+const StyledImg = styled.img`
+  width: 90%;
 `;
 
 const StyledDiv = styled.div``;
@@ -44,7 +49,10 @@ export default function Character({ url }) {
       <h2>{data["name"]}</h2>
       <StyledDiv>
         {data["sprites"] && (
-          <img src={data["sprites"]["front_default"]} alt={`${data["name"]}`} />
+          <StyledImg
+            src={data["sprites"]["front_default"]}
+            alt={`${data["name"]}`}
+          />
         )}
       </StyledDiv>
     </StyledSection>

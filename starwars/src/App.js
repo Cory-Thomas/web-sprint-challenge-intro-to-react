@@ -19,7 +19,11 @@ const StyledH1 = styled.h1`
 
 const StyledFlex = styled.div``;
 
-const StyledDiv = styled.div``;
+const StyledDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 
 const App = () => {
   const [character, setCharacter] = useState([]);
