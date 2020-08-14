@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
+const StyledSection = styled.section`
+  background-color: white;
+  margin: 2%;
+  width: 30%;
+`;
+
 export default function Character({ url }) {
   const [data, setData] = useState({});
 
@@ -31,13 +37,13 @@ export default function Character({ url }) {
   }, [url]);
   console.log(data);
   return (
-    <section>
+    <StyledSection>
       <h2>{data["name"]}</h2>
       <div>
         {data["sprites"] && (
           <img src={data["sprites"]["front_default"]} alt={`${data["name"]}`} />
         )}
       </div>
-    </section>
+    </StyledSection>
   );
 }

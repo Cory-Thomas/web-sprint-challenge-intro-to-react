@@ -1,7 +1,23 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
+import styled from "styled-components";
 import Character from "./components/Character";
+
+const StyledDiv1 = styled.div`
+  width: 80%;
+  margin: 0 auto;
+`;
+
+const StyledH1 = styled.h1`
+  margin: 0 auto;
+`;
+
+const StyledDiv = styled.div`
+  width: 30%;
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 const App = () => {
   const [character, setCharacter] = useState([]);
@@ -16,7 +32,6 @@ const App = () => {
     axios
       .get("https://pokeapi.co/api/v2/pokemon?limit=9")
       .then((pokemon) => {
-        // console.log(pokemon["data"]["results"]);
         setCharacter(pokemon["data"]["results"]);
       })
       .catch((error) => {
@@ -26,11 +41,14 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
-      {character.map((char) => (
-        <Character key={char["name"]} url={char["url"]} />
-      ))}
-    </div>
+    <StyledDiv1>
+      <StyledH1>Pokemon Starters and Their Evolutions</StyledH1>
+      <StyledDiv className="App">
+        {character.map((char) => (
+          <Character key={char["name"]} url={char["url"]} />
+        ))}
+      </StyledDiv>
+    </StyledDiv1>
   );
 };
 
